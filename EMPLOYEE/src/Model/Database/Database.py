@@ -2,11 +2,11 @@ from IDatabase import IDatabase
 import sqlite3
 # This class enable to handle database connection
 #
-# Author: Vaishali Patel
+# Author: Patel
 #
 #
 #
-class Database(IDatabase):
+class Database:
 
     def __init__(self):
         # Create an connection object to connect to Employee Database
@@ -87,5 +87,5 @@ class Database(IDatabase):
         #
         #
         dara_arr = [] # Retrieve employee data in dara_arr array format
-        
+
 

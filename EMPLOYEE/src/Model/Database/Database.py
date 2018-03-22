@@ -43,13 +43,13 @@ class Database:
                             CREATE TABLE IF NOT EXISTS EMPLOYEE (employeeID VARCHAR (6), gender CHAR, age INTEGER,
                             sales INTEGER, bmi VARCHAR(15), salary INTEGER, birthday DATE) 
                             """
-            try:
-                self.cursor.execute (create_table)
-                self.db_conn.commit ()
-            except ConnectionError:
-                print(ConnectionError)
-            except TypeError as error:
-                print (TypeError)
+
+            self.cursor.execute (create_table)
+            self.db_conn.commit ()
+        except ConnectionError:
+            print(ConnectionError)
+        except TypeError as error:
+            print (TypeError)
 
 
     def insert_employee_data(self, data_arr):
@@ -65,22 +65,20 @@ class Database:
                                 INSERT INTO EMPLOYEE(employeeID, gender, age, sales, bmi, salary, birthday)
                                 VALUES ("{employeeID}","{gender}","{age}","{sales}","{bmi}","{salary}","{birthday}");                                    
                                 """
-            try:
+
                 insert_values = insert_string.format(employeeID = employee[0],
-                                                  gender = employee[1],
-                                                  age = employee[2],
-                                                  sales = employee[3],
-                                                  bmi = employee[4],
-                                                  salary = employee[5],
-                                                  birthday = employee[6])
+                                                      gender = employee[1],
+                                                      age = employee[2],
+                                                      sales = employee[3],
+                                                      bmi = employee[4],
+                                                      salary = employee[5],
+                                                      birthday = employee[6])
                 self.cursor.execute (insert_values)
                 self.db_conn.commit ()
-            except ConnectionError:
-                print(ConnectionError)
-            except TypeError as error:
-                print (TypeError)
-            finally:
-                print(FileNotFoundError)
+        except ConnectionError:
+            print(ConnectionError)
+        except TypeError as error:
+            print (TypeError)
 
 
     def select_employee_data(self):
@@ -96,7 +94,6 @@ class Database:
                 select_values="""
                               SELECT * FROM EMPLOYEE
                               """
-            try:
                 self.cursor.execute(select_values) # Execute the SQL Command
                 self.db.conn.commit()              # Commit the changes in Database
                 results = cursor.fetchall ()
@@ -108,9 +105,9 @@ class Database:
                     bmi = raw[4],
                     salary = raw[5],
                     birthday = raw[6]
-            except ConnectionError:
-                print(ConnectionError)
-            except TypeError as error:
-                print (TypeError)
-            finally:
-                print(FileNotFoundError)
+        except ConnectionError:
+            print(ConnectionError)
+        except TypeError as error:
+            print (TypeError)
+        finally:
+            print(FileNotFoundError)

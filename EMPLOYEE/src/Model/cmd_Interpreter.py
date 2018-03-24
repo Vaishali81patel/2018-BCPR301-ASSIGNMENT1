@@ -1,11 +1,14 @@
 import cmd
 import string, sys
+import os
+    #  import os Executing a shell command os.system() Get the users environment os.
 
 class CLI(cmd.Cmd):
 
     def __init__(self):
         cmd.Cmd.__init__(self)
-        self.prompt = '> '
+        self.prompt = '>>> '
+        self.intro = "WELCOME TO THE EMPLOYEE HELP CONSOLE! "
 
     def do_hello(self, arg):
         print (hello,again, arg)

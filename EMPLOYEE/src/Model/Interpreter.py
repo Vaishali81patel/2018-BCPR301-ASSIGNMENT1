@@ -106,11 +106,11 @@ class Interpreter:
         self.data_arr_list.append(data)
         return True
 
-    def set_emp_data_arr(self, ill_data_arr):
-        # This function enable to create ill_data_arr_list and send to
+    def set_emp_data_arr(self, valid_data_arr):
+        # This function enable to create valid_data_arr_list and send to
         # The validate_emp_data function to pass the
         # Validate data test
-        #  Raise the exception error if unable to pass the valid data test
+        # Raise the exception error if unable to pass the valid data test
         #
         # Written By: Patel
-        self.data_arr_list = self.data_validator.validate_emp_data(ill_data_arr)
+        self.data_arr_list = self.data_validator.validate_emp_data(valid_data_arr)

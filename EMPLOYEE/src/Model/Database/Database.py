@@ -1,4 +1,4 @@
-from IDatabase import IDatabase
+#from IDatabase import IDatabase
 import sqlite3
 # This class enable to handle database connection
 #

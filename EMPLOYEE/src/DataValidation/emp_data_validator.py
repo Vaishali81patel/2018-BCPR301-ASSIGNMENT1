@@ -56,12 +56,11 @@ class DataValidator:
 
         except TypeError:
                     print(TypeError)
-                    print("Wrong Data type which have been entered!")
+                    print("Wrong Data type entered!")
 
-                    print("Cleaned people after filter: ", clean_employee)
+                    print("Cleaned employee after filter: ", clean_employee)
 
                     return clean_employee
-
 
     @staticmethod
     def validate_employeeID(empID):
@@ -91,7 +90,6 @@ class DataValidator:
     def validate_age(age):
         """
         Checks age = [0-9]{2} e.g. 0 to 99
-
         >>> DataValidator.validate_age(str(64))
         True
         """
@@ -104,7 +102,6 @@ class DataValidator:
     def validate_sales(sales):
         """
         Checks Sales = [0-9]{3} e.g. 330
-
         >>> DataValidator.validate_sales(str(999))
         True
         """
@@ -117,7 +114,6 @@ class DataValidator:
     def validate_bmi(bmi):
         """
         Checks BMI = normal|overweight|obesity|underweight case insensitive
-
         >>> DataValidator.validate_bmi("Overweight")
         True
         """
@@ -130,7 +126,6 @@ class DataValidator:
     def validate_salary(salary):
         """
         Checks Salary = [0-9]{2,3} e.g. 33 or 330
-
         >>> DataValidator.validate_salary(str(24))
         True
         """
@@ -143,7 +138,6 @@ class DataValidator:
     def validate_birthday(birthday):
         """
         Checks birthday = [0-9]{1,2}-[0-9]{1,2}-[0-9]{4} e.g. 2-5-1967
-
         >>> DataValidator.validate_birthday("2-6-2014")
         True
         """

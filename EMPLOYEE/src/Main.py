@@ -14,4 +14,8 @@ if __name__ == '__main__':
                             DataValidator(),
                             InterpreterController.set_file_path(sys.argv)
                             )
-                          ).cmdloop()
+                        ).cmdloop()
+
+                            # sys.argv is a list in Python, which contains the command-line
+                            # arguments passed to the script.
+                            # With the len(sys.argv) function you can count the number of arguments.

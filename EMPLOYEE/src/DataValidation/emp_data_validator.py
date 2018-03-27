@@ -1,5 +1,5 @@
 import re
-from Employee import *
+# Employee import *
 import doctest
 
 

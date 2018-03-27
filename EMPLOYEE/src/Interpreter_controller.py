@@ -16,7 +16,7 @@ class InterpreterController(Cmd):
 
 
     @staticmethod
-    def set_file_path(self, file_path_args):
+    def set_file_path(file_path_args):
         # This function allows the user to set file path for
         # for their file to store or otherwise stay default
         # if not stated by the user

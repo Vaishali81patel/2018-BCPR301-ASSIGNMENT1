@@ -2,6 +2,7 @@ import re
 # from Employee import *
 import doctest
 
+
 class DataValidator:
 
     def validate_emp_data(self, valid_data_arr):

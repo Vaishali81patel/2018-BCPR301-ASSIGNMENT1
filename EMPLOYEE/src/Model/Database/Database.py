@@ -71,8 +71,7 @@ class Database:
                                 VALUES ("
                                 {employeeID}" , "{gender}" , \
                                 "{age}" , "{sales}" , \
-                                "{bmi}" , "{salary}" , "{birthday}" ); \                                 
-                                """
+                                "{bmi}" , "{salary}" , "{birthday}" ); """
 
                 insert_values = insert_string.format(
                                                   employeeID=employee[0],
@@ -174,7 +173,7 @@ class Database:
         # data to be retrieve in format
         try:
             for list in emp_raw_arr:
-            data_arr_list = []
+                data_arr_list = []
             try:
                     for data in list:
                         data_arr_list.append(data)
@@ -184,4 +183,3 @@ class Database:
             return employee_data_arr
         except ValueError:
             print("data format mismatch")
-

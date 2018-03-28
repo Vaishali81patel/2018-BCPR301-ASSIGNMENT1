@@ -3,7 +3,7 @@
 class IDatabase(object):
 
     @property
-    def create_database_connection(self, database_name='mydb'):
+    def create_database_connection(self, database_name='my_db'):
         raise NotImplementedError("An Abstract method has not been implemented yet!")
 
     def insert_employee_data(self, employee_ob):

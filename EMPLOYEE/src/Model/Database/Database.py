@@ -1,10 +1,8 @@
-#from IDatabase import IDatabase
+# from IDatabase import IDatabase
 import sqlite3
 # This class enable to handle database connection
 #
 # Author: Patel
-#
-#
 #
 
 
@@ -37,7 +35,6 @@ class Database:
         except TypeError as error:
             print (TypeError)
 
-
     def create_employee_table(self):
         # This function is enable to create employee table
         # Raise runtime error and type error if unable to create employee table
@@ -46,8 +43,9 @@ class Database:
         #
         # Create employee table if not exists
         try:
-            create_table = """ CREATE TABLE IF NOT EXISTS EMPLOYEE 
-                                (employeeID VARCHAR (6), gender CHAR, age INTEGER, sales INTEGER, 
+            create_table = """ CREATE TABLE IF NOT EXISTS EMPLOYEE \
+                                (employeeID VARCHAR (6), gender CHAR, \
+                                age INTEGER, sales INTEGER, \
                                 salary INTEGER, birthday DATE)"""
             self.cursor.execute(create_table)
             self.db_conn.commit()
@@ -55,7 +53,6 @@ class Database:
             print(ConnectionError)
         except TypeError as error:
             print (TypeError)
-
 
     def insert_employee_data(self, data_arr_list):
         # This is function is enable to insert data into employee table

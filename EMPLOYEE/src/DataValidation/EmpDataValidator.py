@@ -45,11 +45,11 @@ class DataValidator:
                         print ("Valid birthday: " + str (valid_employee[6]))
                         cleaned_employee.append (str (valid_employee[6]))
                     else:
-                        return "Not enough feilds: " + str (len (valid_employee))
+                        return "Not enough fields: " + str (len (valid_employee))
 
                     filter (None, cleaned_employee)
 
-                    print ("Cleaned person after filter: ", cleaned_employee)
+                    print ("Valid Employee after filter: ", cleaned_employee)
 
                     if len (cleaned_employee) == 7:
                         clean_employee.append (cleaned_employee)
@@ -58,7 +58,7 @@ class DataValidator:
                     print(TypeError)
                     print("Wrong Data type entered!")
 
-                    print("Cleaned employee after filter: ", clean_employee)
+                    print("Valid employee after filter: ", clean_employee)
 
                     return clean_employee
 

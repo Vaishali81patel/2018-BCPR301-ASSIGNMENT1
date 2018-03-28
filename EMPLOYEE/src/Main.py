@@ -1,17 +1,17 @@
 from interpreter_controller import InterpreterController
-# from View.graph_view import *
+from View.iView import *
 from Model.Interpreter import *
-from File_Handler.file_handler import *
-from DataValidation.emp_data_validator import *
+from FileHandler.FileHandler import *
+from DataValidation.EmpDataValidator import *
 from Model.Database.Database import *
 import sys
 
 
 if __name__ == '__main__':
-    InterpreterController(Interpreter(
-                            Database(),
+    InterpreterController(EmployeeData_View(), Interpreter(
                             FileHandler(),
                             DataValidator(),
+                            Database (),
                             InterpreterController.set_file_path(sys.argv)
                             )
                         ).cmdloop()

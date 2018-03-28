@@ -15,19 +15,6 @@ class FileHandlerTests(unittest.TestCase):
                      ['C234', 'M', '5', '676', 'Overweight', '300', '1-12-1977'],
                      ['C4', 'Male', 'nine', '66,8', 'heavy', '3,00', '1-12-19']]
 
-    def test_01(self):
-        # forces the program to try load from the file
-        # that hasnt been made. This should fail
-        self.assertTrue(self.file_handler.load_file(), "[['A001', 'F', '23',"
-                                                       " '456', 'Normal', '23',"
-                                                       " '30-5-1994'], ['C234',"
-                                                       " 'M', '5', '676', "
-                                                       "'Overweight', '300', "
-                                                       "'1-12-1977'], ['C4', "
-                                                       "'Male', 'nine', '|66',"
-                                                       " '8|', 'heavy', '|3', "
-                                                       "'00|', '1-12-19']]")
-
     def test_02(self):
         # Gives the loader a path to the load
         # data file this should be true

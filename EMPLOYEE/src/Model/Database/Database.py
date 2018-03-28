@@ -64,12 +64,18 @@ class Database:
         try:
             for employee in data_arr_list:
                 # Retrieve employee data in to data_arr "array" format
-                insert_string ="""
-                                INSERT INTO EMPLOYEE(employeeID, gender, age, sales, bmi, salary, birthday)
-                                VALUES ("{employeeID}" , "{gender}" , "{age}" , "{sales}" , "{bmi}" , "{salary}" , "{birthday}" );                                    
+                insert_string = """
+                                INSERT INTO EMPLOYEE(
+                                employeeID, gender, age, sales, \
+                                bmi, salary, birthday)
+                                VALUES ("
+                                {employeeID}" , "{gender}" , \
+                                "{age}" , "{sales}" , \
+                                "{bmi}" , "{salary}" , "{birthday}" ); \                                 
                                 """
 
-                insert_values = insert_string.format(employeeID = employee[0],
+                insert_values = insert_string.format(
+                                                    employeeID = employee[0],
                                                       gender = employee[1],
                                                       age = employee[2],
                                                       sales = employee[3],
@@ -157,10 +163,12 @@ class Database:
         # Author: Patel
         #
         employee_data_arr = []  # Declare temp list  array
+        # Declare list data type for employee \
+        # data to be retrieve in format
         try:
             for list in emp_raw_arr:
-                data_arr_list = []  # Declare list data type for employee data to be retrieve in format
-                try:
+                data_arr_list = []
+            try:
                     for data in list:
                         data_arr_list.append(data)
                     employee_data_arr.append(data_arr_list)

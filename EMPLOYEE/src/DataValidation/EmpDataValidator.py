@@ -15,44 +15,45 @@ class DataValidator:
 
                 if len(valid_employee) == 7:
                     cleaned_employee = []
-                    print ("employee data is correct length")
+                    print("employee data is correct length")
 
-                    if self.validate_empid (str (valid_employee[0])):
-                        print ("Valid employeeID: " + str (valid_employee[0]))
-                        cleaned_employee.append (str (valid_employee[0]))
+                    if self.validate_empid(str(valid_employee[0])):
+                        print("Valid employeeID: " + str(valid_employee[0]))
+                        cleaned_employee.append(str(valid_employee[0]))
 
-                    if self.validate_gender (str (valid_employee[1])):
-                        print ("Valid gender: " + str (valid_employee[1]))
-                        cleaned_employee.append (str (valid_employee[1]))
+                    if self.validate_gender(str(valid_employee[1])):
+                        print("Valid gender: " + str(valid_employee[1]))
+                        cleaned_employee.append(str(valid_employee[1]))
 
-                    if self.validate_age (str (valid_employee[2])):
-                        print ("Valid age: " + str (valid_employee[2]))
-                        cleaned_employee.append (str (valid_employee[2]))
+                    if self.validate_age(str(valid_employee[2])):
+                        print("Valid age: " + str(valid_employee[2]))
+                        cleaned_employee.append(str(valid_employee[2]))
 
-                    if self.validate_sales (str (valid_employee[3])):
-                        print ("Valid Sales: " + str (valid_employee[3]))
-                        cleaned_employee.append (str (valid_employee[3]))
+                    if self.validate_sales(str(valid_employee[3])):
+                        print("Valid Sales: " + str(valid_employee[3]))
+                        cleaned_employee.append(str(valid_employee[3]))
 
-                    if self.validate_bmi (str (valid_employee[4])):
-                        print ("Valid BMI: " + str (valid_employee[4]))
-                        cleaned_employee.append (str (valid_employeen[4]))
+                    if self.validate_bmi(str(valid_employee[4])):
+                        print("Valid BMI: " + str(valid_employee[4]))
+                        cleaned_employee.append(str(valid_employeen[4]))
 
-                    if self.validate_salary (str (valid_employee[5])):
-                        print ("Valid salary: " + str (valid_employee[5]))
-                        cleaned_employee.append (str (valid_employee[5]))
+                    if self.validate_salary(str(valid_employee[5])):
+                        print("Valid salary: " + str(valid_employee[5]))
+                        cleaned_employee.append(str(valid_employee[5]))
 
-                    if self.validate_birthday (str (valid_employee[6])):
-                        print ("Valid birthday: " + str (valid_employee[6]))
-                        cleaned_employee.append (str (valid_employee[6]))
+                    if self.validate_birthday(str(valid_employee[6])):
+                        print("Valid birthday: " + str(valid_employee[6]))
+                        cleaned_employee.append(str(valid_employee[6]))
                     else:
-                        return "Not enough fields: " + str (len (valid_employee))
+                        return "Not enough fields: " \
+                            + str(len(valid_employee))
 
-                    filter (None, cleaned_employee)
+                    filter(None, cleaned_employee)
 
-                    print ("Valid Employee after filter: ", cleaned_employee)
+                    print("Valid Employee after filter: ", cleaned_employee)
 
-                    if len (cleaned_employee) == 7:
-                        clean_employee.append (cleaned_employee)
+                    if len(cleaned_employee) == 7:
+                        clean_employee.append(cleaned_employee)
 
         except TypeError:
                     print(TypeError)
@@ -69,7 +70,7 @@ class DataValidator:
         >>> DataValidator.validate_employeeID("E111")
         True
         """
-        if re.compile ("^[A-Z][0-9]{3}$").match (empID):
+        if re.compile("^[A-Z][0-9]{3}$").match(empID):
             return True
         else:
             return False
@@ -81,7 +82,7 @@ class DataValidator:
         >>> DataValidator.validate_gender("F")
         True
         """
-        if re.compile ("^[M|F]$").match (gender):
+        if re.compile("^[M|F]$").match(gender):
             return True
         else:
             return False
@@ -93,7 +94,7 @@ class DataValidator:
         >>> DataValidator.validate_age(str(64))
         True
         """
-        if re.compile ("^[0-9]{2}$").match (age):
+        if re.compile("^[0-9]{2}$").match(age):
             return True
         else:
             return False
@@ -105,7 +106,7 @@ class DataValidator:
         >>> DataValidator.validate_sales(str(999))
         True
         """
-        if re.compile ("^[0-9]{3}$").match (sales):
+        if re.compile("^[0-9]{3}$").match(sales):
             return True
         else:
             return False
@@ -117,7 +118,7 @@ class DataValidator:
         >>> DataValidator.validate_bmi("Overweight")
         True
         """
-        if re.compile ("^Normal|Overweight|Obesity|Underweight$").match (bmi):
+        if re.compile("^Normal|Overweight|Obesity|Underweight$").match(bmi):
             return True
         else:
             return False
@@ -129,7 +130,7 @@ class DataValidator:
         >>> DataValidator.validate_salary(str(24))
         True
         """
-        if re.compile ("^[0-9]{2,3}$").match (salary):
+        if re.compile("^[0-9]{2,3}$").match(salary):
             return True
         else:
             return False
@@ -141,10 +142,10 @@ class DataValidator:
         >>> DataValidator.validate_birthday("2-6-2014")
         True
         """
-        if re.compile ("^([0-9]{1,2})-([0-9]{1,2})-([0-9]{4})$").match (birthday):
+        if re.compile("^([0-9]{1,2})-([0-9]{1,2})-([0-9]{4})$")
+        .match(birthday):
             # TODO make it smarter to get the month a days in the correct order
             return True
-
         else:
             return False
 

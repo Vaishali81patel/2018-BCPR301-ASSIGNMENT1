@@ -75,37 +75,38 @@ class Database:
                                 """
 
                 insert_values = insert_string.format(
-                                                    employeeID = employee[0],
-                                                      gender = employee[1],
-                                                      age = employee[2],
-                                                      sales = employee[3],
-                                                      bmi = employee[4],
-                                                      salary = employee[5],
-                                                      birthday = employee[6])
-                self.cursor.execute (insert_values)
-                self.db_conn.commit ()
+                                                  employeeID=employee[0],
+                                                  gender=employee[1],
+                                                  age=employee[2],
+                                                  sales=employee[3],
+                                                  bmi=employee[4],
+                                                  salary=employee[5],
+                                                  birthday=employee[6])
+                self.cursor.execute(insert_values)
+                self.db_conn.commit()
         except ConnectionError:
             print(ConnectionError)
         except TypeError as error:
-            print (TypeError)
-
+            print(TypeError)
 
     def select_employee_data(self):
-        # This function is unable to retrieve data_arr_list from employee table
-        # Raise runtime error and type error if unable to retrieve data from employee table
+        # This function is unable to retrieve \
+        # data_arr_list from employee table
+        # Raise runtime error and type error \
+        # if unable to retrieve data from employee table
         #
         # Author: Patel
         #
-        #
-        data_arr_list = [] # Retrieve employee data in dara_arr list format
+        data_arr_list = []  # Retrieve employee data in dara_arr list format
         try:
-            for employee in data_arr_list:  # Retrieve employee data in to data_arr "array" format
-                select_values="""
+            for employee in data_arr_list:
+                    # Retrieve employee data in to data_arr "array" format
+                select_values = """
                               SELECT * FROM EMPLOYEE
                               """
-                self.cursor.execute(select_values) # Execute the SQL Command
-                self.db.conn.commit()              # Commit the changes in Database
-                results = cursor.fetchall ()
+                self.cursor.execute(select_values)  # Execute the SQL Command
+                self.db.conn.commit()  # Commit the changes in Database
+                results = cursor.fetchall()
                 for row in results:
                     employeeID = raw[0],
                     gender = raw[1],
@@ -117,48 +118,54 @@ class Database:
         except ConnectionError:
             print(ConnectionError)
         except TypeError as error:
-            print (TypeError)
+            print(TypeError)
         finally:
             print(FileNotFoundError)
 
-
-    def save_employee_data (self, data_arr_list, database_name='db_name'):
+    def save_employee_data(self, data_arr_list, database_name='db_name'):
         #
-        # This function is unable to save employee data into employee.db
-        # Raise runtime error and type error if unable to retrieve database file
+        # This function is unable to \
+        # save employee data into employee.db
+        # Raise runtime error and type error \
+        # if unable to retrieve database file
         #
         # Author: Patel
         #
         self.create_db_connection(db_conn)
         try:
             if self.insert_employee_data(data_arr_list):
-                return true
+                return True
             else:
-                return false
+                return False
         except OSError:
-            print ("cannot open")
+            print("cannot open")
 
-
-    def turn_emp_data_into_info(self,database_name):
+    def turn_emp_data_into_info(self, database_name):
         #
-        # This function is unable to turn employee data into information and then
-        # Raise runtime error and type error if unable to retrieve database file
+        # This function is unable to turn \
+        # employee data into information and then
+        # Raise runtime error and type error \
+        # if unable to retrieve database file \
         #
         # Author: Patel
         #
         try:
             self.create_db_connection(database_name)
-            return self.format.incoming_data_into_info(self,select_employee_data())
+            return self.format.incoming_data_into_info(
+                            self, select_employee_data())
         except ConnectionError:
             print(ConnectionError)
         except TypeError as error:
-            print (TypeError)
+            print(TypeError)
 
-    def format_employee_data(self,emp_raw_arr):
+    def format_employee_data(self, emp_raw_arr):
         #
-        # This function is unable to retrieve employee data from employee database and then
-        # Format into arrays of array in order to validate the employee data
-        # Raise runtime error and type error if unable to retrieve database file
+        # This function is unable to retrieve \
+        # employee data from employee database and then
+        # Format into arrays of array in order \
+        # to validate the employee data
+        # Raise runtime error and type error \
+        # if unable to retrieve database file
         #
         # Author: Patel
         #
@@ -167,13 +174,13 @@ class Database:
         # data to be retrieve in format
         try:
             for list in emp_raw_arr:
-                data_arr_list = []
+            data_arr_list = []
             try:
                     for data in list:
                         data_arr_list.append(data)
                     employee_data_arr.append(data_arr_list)
-                except TypeError as OOPS:
-                    print (OOPS)
+            except TypeError as OOPS:
+                print(OOPS)
             return employee_data_arr
         except ValueError:
             print("data format mismatch")

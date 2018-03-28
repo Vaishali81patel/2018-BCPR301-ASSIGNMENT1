@@ -1,5 +1,4 @@
 import re
-# Employee import *
 import doctest
 
 
@@ -35,7 +34,7 @@ class DataValidator:
 
                     if self.validate_bmi(str(valid_employee[4])):
                         print("Valid BMI: " + str(valid_employee[4]))
-                        cleaned_employee.append(str(valid_employeen[4]))
+                        cleaned_employee.append(str(valid_employee[4]))
 
                     if self.validate_salary(str(valid_employee[5])):
                         print("Valid salary: " + str(valid_employee[5]))
@@ -64,13 +63,13 @@ class DataValidator:
                     return clean_employee
 
     @staticmethod
-    def validate_employeeID(empID):
+    def validate_empid(empid):
         """
         Checks empID = [A-Z][0-9]{3}) e.g. E101
-        >>> DataValidator.validate_employeeID("E111")
+        >>> DataValidator.validate_empid("E111")
         True
         """
-        if re.compile("^[A-Z][0-9]{3}$").match(empID):
+        if re.compile("^[A-Z][0-9]{3}$").match(empid):
             return True
         else:
             return False
@@ -142,10 +141,8 @@ class DataValidator:
         >>> DataValidator.validate_birthday("2-6-2014")
         True
         """
-        if re.compile("^([0-9]{1,2})-([0-9]{1,2})-([0-9]{4})$")
-        .match(birthday):
-            # TODO make it smarter to get the month a days in the correct order
-            return True
+        if re.compile("^([0-9]{1,2})-([0-9]{1,2})-([0-9]{4})$").match(birthday):
+           return True
         else:
             return False
 

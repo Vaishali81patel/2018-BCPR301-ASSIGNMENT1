@@ -1,5 +1,5 @@
 import unittest
-from EMPLOYEE.DataValidation.DataValidator import *
+from EmpDataValidator import *
 
 
 class DataValidatorTests(unittest.TestCase):

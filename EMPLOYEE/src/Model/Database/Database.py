@@ -1,4 +1,4 @@
-from Model.Database.i_database import IDatabase
+#from Model.Database.i_database import IDatabase
 import sqlite3
 # This class enable to handle database connection
 #
@@ -6,7 +6,7 @@ import sqlite3
 #
 
 
-class Database(IDatabase):
+class Database():
 
     def __init__(self):
         # Create an connection object to connect to Employee Database

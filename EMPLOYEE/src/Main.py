@@ -1,4 +1,4 @@
-from interpreter_controller import InterpreterController
+from interpreter_controller import IInterpreterController
 from View.iView import *
 from Model.Interpreter import *
 from FileHandler.FileHandler import *

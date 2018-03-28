@@ -27,7 +27,7 @@ class Interpreter:
 
     def serialize_emp_data_arr(self, args=''):
         # This function enable to serialize employee data
-        # Raise Exeption Error if unable to do so
+        # Raise Exception Error if unable to do so
         #
         # Written by: Patel
         # args means for however many arguments you take in, it will catch them all

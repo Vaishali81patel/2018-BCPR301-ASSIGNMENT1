@@ -1,8 +1,8 @@
-from interpreter_controller import IInterpreterController
+from interpreter_controller import InterpreterController
 from View.iView import *
 from Model.Interpreter import *
-from FileHandler.FileHandler import *
-from DataValidation.EmpDataValidator import *
+from Model.FileHandler.FileHandler import *
+from Model.DataValidation.EmpDataValidator import *
 from Model.Database.Database import *
 import sys
 

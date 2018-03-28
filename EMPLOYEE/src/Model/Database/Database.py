@@ -1,4 +1,4 @@
-# from IDatabase import IDatabase
+# from Model.Database import IDatabase
 import sqlite3
 # This class enable to handle database connection
 #
@@ -10,12 +10,12 @@ class Database:
 
     def __init__(self):
         # Create an connection object to connect to Employee Database
-        self.db_conn = sqlite3.connect('Employee.db')
+        self.db_conn = None
         # Create a "cursor" variable and cursor object
         # in order to execute the sql command
         self.cursor = None
 
-    def create_db_connection(self, db_conn):
+    def create_db_connection(self, database_name):
         #
         # This function enable to handle database connection
         # Raise runtime error and type error if unable to connect database
@@ -23,11 +23,11 @@ class Database:
         # Author: Patel
         #
         try:
-            self.db_conn = sqlite3.connect(db_conn)
+            self.db_conn = sqlite3.connect(database_name)
             # Try to connect the employee database
             self.cursor = self.db_conn.cursor()
             # Try to execute the connection with the employee database
-            self.create_table()
+            self.create_employee_table()
             # try to create the employee table
             return False
         except ConnectionError:
@@ -98,30 +98,18 @@ class Database:
         #
         data_arr_list = []  # Retrieve employee data in dara_arr list format
         try:
-            for employee in data_arr_list:
-                    # Retrieve employee data in to data_arr "array" format
-                select_values = """
-                              SELECT * FROM EMPLOYEE
-                              """
-                self.cursor.execute(select_values)  # Execute the SQL Command
-                self.db.conn.commit()  # Commit the changes in Database
-                results = cursor.fetchall()
-                for row in results:
-                    employeeID = raw[0],
-                    gender = raw[1],
-                    age = raw[2],
-                    sales = raw[3],
-                    bmi = raw[4],
-                    salary = raw[5],
-                    birthday = raw[6]
+            self.cursor.execute(" SELECT * FROM EMPLOYEE ")
+            result = self.cursor.fetchall()
+            for r in result:
+                    data_arr_list.append(r)
+            return data_arr_list
         except ConnectionError:
             print(ConnectionError)
-        except TypeError as error:
-            print(TypeError)
-        finally:
-            print(FileNotFoundError)
+        except AttributeError as err:
+            print(err)
+            return False
 
-    def save_employee_data(self, data_arr_list, database_name='db_name'):
+    def save_employee_data(self, data_arr_list, database_name='mydb'):
         #
         # This function is unable to \
         # save employee data into employee.db
@@ -130,7 +118,7 @@ class Database:
         #
         # Author: Patel
         #
-        self.create_db_connection(db_conn)
+        self.create_db_connection(database_name)
         try:
             if self.insert_employee_data(data_arr_list):
                 return True
@@ -139,7 +127,7 @@ class Database:
         except OSError:
             print("cannot open")
 
-    def turn_emp_data_into_info(self, database_name):
+    def turn_emp_data_into_info(self, database_name='mydb'):
         #
         # This function is unable to turn \
         # employee data into information and then
@@ -148,16 +136,11 @@ class Database:
         #
         # Author: Patel
         #
-        try:
-            self.create_db_connection(database_name)
-            return self.format.incoming_data_into_info(
-                            self, select_employee_data())
-        except ConnectionError:
-            print(ConnectionError)
-        except TypeError as error:
-            print(TypeError)
+        self.create_db_connection(database_name='mydb')
+        return self.format_employee_data(self.select_employee_data())
 
-    def format_employee_data(self, emp_raw_arr):
+
+    def format_employee_data(emp_raw_arr):
         #
         # This function is unable to retrieve \
         # employee data from employee database and then
@@ -171,15 +154,16 @@ class Database:
         employee_data_arr = []  # Declare temp list  array
         # Declare list data type for employee \
         # data to be retrieve in format
+        employee_data_arr = []
         try:
-            for list in emp_raw_arr:
+            for a_tuple in emp_raw_arr:
                 data_arr_list = []
-            try:
-                    for data in list:
+                try:
+                    for data in a_tuple:
                         data_arr_list.append(data)
                     employee_data_arr.append(data_arr_list)
-            except TypeError as OOPS:
-                print(OOPS)
+                except TypeError as oops:
+                    print(oops)
             return employee_data_arr
-        except ValueError:
-            print("data format mismatch")
+        except TypeError as oops:
+            print(oops)

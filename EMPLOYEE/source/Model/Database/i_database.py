@@ -1,5 +1,7 @@
 # Create exceptional error handling interface class
 # This is an interface class of Database base class
+
+
 class IDatabase(object):
 
     @property

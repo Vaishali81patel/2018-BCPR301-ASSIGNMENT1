@@ -1,6 +1,7 @@
 class Interpreter:
     # This is the model class which handles various modules
-    # This interpreter require data_validator, default file path file handler and database handler
+    # This interpreter require data_validator, \
+    # default file path file handler and database handler
     # In order to handle the system correctly
     #
     # Written by: Patel
@@ -30,10 +31,12 @@ class Interpreter:
         # Raise Exception Error if unable to do so
         #
         # Written by: Patel
-        # args means for however many arguments you take in, it will catch them all
+        # args means for however many arguments you take in, \
+        # it will catch them all
         if args == '':
             try:
-                self.my_file_handler.shelve_file(self.data_arr_list, self.default_file_path)
+                self.my_file_handler.shelve_file
+                (self.data_arr_list, self.default_file_path)
             except OSError:
                 print (OSError)
                 return false
@@ -52,18 +55,20 @@ class Interpreter:
         # Raise exception Error if unable to do so
         #
         # Written by: Patel
-        # args means for however many arguments you take in, it will catch them all
+        # args means for however many arguments you take in, \
+        # it will catch them all
         if args == '':
             try:
-                self.my_file_handler.save_file (self.data_arr_list, self.default_file_path)
+                self.my_file_handler.save_file
+                (self.data_arr_list, self.default_file_path)
             except OSError:
                 print (OSError)
                 return false
             else:
                 try:
-                    self.my_file_handler.save_file (self.data_arr_list, args)
+                    self.my_file_handler.save_file(self.data_arr_list, args)
                 except OSError:
-                    print (OSError)
+                    print(OSError)
                     return false
 
     def save_file_into_database(self, database_name='my_db'):
@@ -76,7 +81,7 @@ class Interpreter:
         #
         self.database_handler.save_emp_data(self.emp_data_arr, database_name)
 
-    def load_emp_file(self, file_path ):
+    def load_emp_file(self, file_path):
         # This function enable to load data from .csv file
         # cleanse the employee data before bring in to front
         # By the set_emp_data_arr function
@@ -92,8 +97,10 @@ class Interpreter:
         #
         # Written By: Patel
         #
-        self.set_emp_data_arr(self.database_handler, get_employee_info
-                                (database_name))
+        self.set_emp_data_arr(
+                    self.database_handler,
+                    get_employee_info(database_name)
+                    )
 
     def manual_data_entry(self, new_employee_data):
         # This function enable user to add manual data in to

@@ -41,14 +41,12 @@ class FileHandler:
         #
         try:
             with open(file_path, 'w', newline='') as emp_data_file:
-                    file_write = 'csv.writer'
-                (emp_data_file, quotechar='|',
-                    delimiter=",", quoting=csv.QUOTE_MINIMAL)
+                    write = 'csv.writer(emp_data_file, quotechar='|', delimiter=",", quoting=csv.QUOTE_MINIMAL)
                 # Previously, if a line ended within a quoted field without a
                 # terminating newline character, a newline would be
                 # inserted into the returned field.
                     for employee in emp_data_arr:
-                        file_write.writerow(employee)
+                        write.writerow(employee)
         except FileNotFoundError:
             print ('File not found')
             return False
@@ -57,4 +55,25 @@ class FileHandler:
             return False
         return True
 
-
+    def shelve_file(emp_data_arr, file_path='data.shelf'):
+        # This function is enable to shelve module can be
+        # used as a simple persistent storage option for
+        # Python objects when a relational database is overkill.
+        # The shelf is accessed by keys, just as with a dictionary.
+        # The values are pickled and written to a database
+        # created and managed by anydbm.
+        # Raise exception error if unable to do so
+        #
+        # Written By : Patel
+        #
+        try:
+            count = 0
+            d = shelve.open(file_path, 'c')
+            for employee in emp_data_arr:
+                count = count = 1
+                d[str(count)] = employee
+                d.close()
+        except FileNotFoundError:
+            print ("File ", file_path, "was not found!")
+            return False
+        return True

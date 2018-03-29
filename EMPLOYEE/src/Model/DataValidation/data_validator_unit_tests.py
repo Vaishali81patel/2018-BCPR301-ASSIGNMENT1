@@ -1,5 +1,5 @@
 import unittest
-from EmpDataValidator import *
+from emp_data_validator import *
 
 
 class DataValidatorTests(unittest.TestCase):
@@ -11,17 +11,17 @@ class DataValidatorTests(unittest.TestCase):
     def setUp(self):
         # be executed before each test
         print("set up")
-        self.data = [['A001', 'F', '23', '456', 'Normal', '23', '30-05-1994'],
-                     ['C234', 'M', '5', '676', 'Overweight', '300', '1-12-1977'],
-                     ['C4', 'Male', 'nine', '66,8', 'heavy', '3,00', '1-12-19']]
+        self.data = [['A001', 'F', '25', '550', 'Normal', '39', '30-05-1995'],
+                     ['C333', 'M', '5', '777', 'Overweight', '300', '1-12-1977'],
+                     ['D4', 'Male', 'nine', '66,9', 'heavy', '5,00', '1-12-19']]
 
-        self.data_2 = [['H001', 'M', '16', '200', 'Normal', '230', '30-05-1999']]
+        self.data_2 = [['H001', 'M', '18', '200', 'Normal', '250', '29-05-1999']]
 
         self.data_3 = [['', '', '', '', '', '', '']]
 
-        self.data_4 = [['H001', 'Male', 'eight', '2oo', 'Normal', '230', '30-05-1999']]
+        self.data_4 = [['I001', 'Male', 'eight', '1oo', 'Normal', '245', '30-06-1999']]
 
-        self.data_5 = [['@001', '~', '!', '&&&', '^', '$', '*-05-*']]
+        self.data_5 = [['@001', '~', '!', '&&&', '^', '$', '*-10-*']]
 
     def tearDown(self):
         # be executed after each test case

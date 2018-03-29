@@ -41,7 +41,7 @@ class FileHandler:
         #
         try:
             with open(file_path, 'w', newline='') as emp_data_file:
-                    write = 'csv.writer(emp_data_file, quotechar='|', delimiter=",", quoting=csv.QUOTE_MINIMAL)
+                    write = 'csv.writer(emp_data_file, quotechar = '|', delimiter = ", ", quoting = csv.QUOTE_MINIMAL)
                 # Previously, if a line ended within a quoted field without a
                 # terminating newline character, a newline would be
                 # inserted into the returned field.

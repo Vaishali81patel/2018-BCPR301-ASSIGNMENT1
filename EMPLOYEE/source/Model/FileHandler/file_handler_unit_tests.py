@@ -1,9 +1,9 @@
 import unittest
-from .FileHandler import *
+# from .FileHandler import *
 
 
 class FileHandlerTests(unittest.TestCase):
-    """Written By Thomas
+    """
 
     This file provides test coverage for the file handler
 
@@ -11,9 +11,9 @@ class FileHandlerTests(unittest.TestCase):
 
     def setUp(self):
         self.file_handler = FileHandler()
-        self.data = [['A001', 'F', '23', '456', 'Normal', '23', '30-5-1994'],
-                     ['C234', 'M', '5', '676', 'Overweight', '300', '1-12-1977'],
-                     ['C4', 'Male', 'nine', '66,8', 'heavy', '3,00', '1-12-19']]
+        self.data = [['A011', 'M', '25', '555', 'Normal', '25', '31-8-1995'],
+                     ['C245', 'F', '7', '777', 'Overweight', '250', '1-12-1979'],
+                     ['C5', 'Female', 'eight', '55,9', 'heavy', '5,00', '1-12-18']]
 
     def test_02(self):
         # Gives the loader a path to the load
